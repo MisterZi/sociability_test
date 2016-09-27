@@ -1,15 +1,20 @@
 # Тест взят http://www.syntone.ru/library/psytests/content/4969.html
 
-require "./" + File.dirname(__FILE__) + "/test.rb"
-require "./" + File.dirname(__FILE__) + "/result_printer.rb"
+current_path = File.dirname(__FILE__)
+
+require "./" + current_path + "/lib/test.rb"
+require "./" + current_path + "/lib/result_printer.rb"
 
 about = "Данный тест поможет определить Ваш уровень коммуникабельности.\n\n"
 
 puts about
 sleep(2)
 
-test = Test.new
-result_printer = ResultPrinter.new
+questions_file_name = "./" + current_path + "/data/questions.txt" # массив вопросов, загружаем из файла questions.txt
+results_file_name = "./" + current_path + "/data/results.txt"     # массив результатов, загружаем из файла results.txt
+
+test = Test.new(questions_file_name)
+result_printer = ResultPrinter.new(results_file_name)
 
 # основной цикл программы
 while test.next_question == true do

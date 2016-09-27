@@ -5,11 +5,8 @@ class Test
 
   attr_reader :points  
 
-  def initialize
-    # массив вопросов, загружаем из файла questions.txt
-    current_path = File.dirname(__FILE__)
-    file_name = current_path + "/questions.txt"
-
+  def initialize(file_name)
+        
     if !File.exist?(file_name)
       abort "Невозможно загрузить вопросы!"
     end

@@ -4,11 +4,8 @@
 
 class ResultPrinter 
 
-  def initialize
-    # массив результатов, загружаем из файла results.txt
-    current_path = File.dirname(__FILE__)
-    file_name = current_path + "/results.txt"
-
+  def initialize(file_name)
+        
     if !File.exist?(file_name)
       abort "Невозможно загрузить результаты!"
     end
